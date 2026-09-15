@@ -7,6 +7,8 @@ WORKDIR /app
 RUN uv venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
+RUN uv pip install --no-cache torch --index-url https://download.pytorch.org/whl/cpu
+
 COPY requirements.txt .
 RUN uv pip install --no-cache -r requirements.txt
 
